@@ -2,3 +2,12 @@
 	width: 400px;
 	height: 500px;
 }
+
+.ant-tabs-tab {
+	width: 98px;
+	display: block;
+}
+
+.ant-tabs-tab-btn {
+	text-align: center;
+}

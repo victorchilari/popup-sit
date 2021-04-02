@@ -17,7 +17,7 @@ function callback(key: string) {
 function App() {
 	return (
 		<div className='layoutMain'>
-			<Tabs onChange={callback} type='card' defaultActiveKey='4'>
+			<Tabs onChange={callback} type='card' defaultActiveKey='4' centered>
 				<TabPane tab='Main' key='1'>
 					<Content className='paddingContainerInMenu'>
 						<div>Content of Tab Pane 1</div>
