@@ -7,3 +7,9 @@
 .paddingContainerInMenu {
 	padding: 0 16px;
 }
+.aligneItemsCenter {
+	align-items: center;
+}
+.w100p {
+	width: 100%;
+}

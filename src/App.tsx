@@ -18,17 +18,17 @@ function App() {
 	return (
 		<div className='layoutMain'>
 			<Tabs onChange={callback} type='card' defaultActiveKey='4' centered>
-				<TabPane tab='Main' key='1'>
+				<TabPane disabled tab='Main' key='1'>
 					<Content className='paddingContainerInMenu'>
 						<div>Content of Tab Pane 1</div>
 					</Content>
 				</TabPane>
-				<TabPane tab='Details' key='2'>
+				<TabPane disabled tab='Details' key='2'>
 					<Content className='paddingContainerInMenu'>
 						<div>Content of Tab Pane 2</div>
 					</Content>
 				</TabPane>
-				<TabPane tab='State' key='3'>
+				<TabPane disabled tab='State' key='3'>
 					<Content className='paddingContainerInMenu'>
 						<div>Content of Tab Pane 3</div>
 					</Content>
