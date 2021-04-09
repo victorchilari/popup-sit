@@ -1,11 +1,12 @@
 import React from 'react';
-import {Tabs, Layout} from 'antd';
 // Styles //
 import 'antd/dist/antd.css';
 import './often.css';
 import './App.css';
 // Pages //
 import Settings from './pages/Settings';
+// UI Components //
+import {Tabs, Layout} from 'antd';
 // Extract //
 const {TabPane} = Tabs;
 const {Content} = Layout;
