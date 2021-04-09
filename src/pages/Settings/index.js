@@ -18,7 +18,7 @@ export default function Settings() {
 				</Col>
 			</Row>
 			<Row className='margin-top'>
-				<Col style={{backgroundColor: '#00ea7a'}}>
+				<Col span={17} style={{backgroundColor: '#00ea7a'}}>
 					<SettingsPicker />
 				</Col>
 			</Row>
