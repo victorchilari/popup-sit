@@ -8,7 +8,6 @@ import {UserOutlined, EyeInvisibleOutlined, EyeTwoTone} from '@ant-design/icons'
 import 'antd/dist/antd.css';
 import '../../often.css';
 import './Auth.css';
-// Extract //
 
 function onChange(e) {
 	console.log(`checked = ${e.target.checked}`);

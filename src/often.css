@@ -13,3 +13,12 @@
 .w100p {
 	width: 100%;
 }
+.margin-top {
+	margin-top: 20px;
+}
+.mt-8 {
+	margin-top: 8px;
+}
+.mb-8 {
+	margin-bottom: 8px;
+}

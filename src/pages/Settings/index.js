@@ -1,11 +1,14 @@
 import React from 'react';
+// Styles //
+import '../../often.css';
+// Components //
 import {Row, Col} from 'antd';
 import Auth from './Auth';
+import SettingsPicker from './SettingsPicker';
 
 export default function Settings() {
 	return (
-		<div>
-			Hey!
+		<>
 			<Row>
 				<Col span={6} style={{backgroundColor: 'orange'}}>
 					2 / 5
@@ -13,14 +16,12 @@ export default function Settings() {
 				<Col span={15} offset={3} style={{backgroundColor: 'pink'}}>
 					<Auth />
 				</Col>
-				{/* <Col flex={2} style={{backgroundColor: 'orange'}}>
-					2 / 5
-				</Col>
-				<Col flex={1}>2 / 5</Col>
-				<Col flex={4} style={{backgroundColor: 'pink'}}>
-					3 / 5
-				</Col> */}
 			</Row>
-		</div>
+			<Row className='margin-top'>
+				<Col style={{backgroundColor: '#00ea7a'}}>
+					<SettingsPicker />
+				</Col>
+			</Row>
+		</>
 	);
 }
