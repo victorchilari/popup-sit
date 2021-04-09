@@ -10,7 +10,7 @@ const layout = {
 		span: 11
 	},
 	wrapperCol: {
-		span: 8
+		span: 11
 	}
 };
 
@@ -27,10 +27,6 @@ const SettingsPicker = () => {
 		console.log(`selected ${value}`);
 		// setValue(value);
 	}
-	function handleCurrency(value) {
-		console.log(`selected ${value}`);
-		// setValue(value);
-	}
 	return (
 		<>
 			<Form {...layout}>
@@ -41,11 +37,29 @@ const SettingsPicker = () => {
 					</Select>
 				</Form.Item>
 				<Form.Item name='currency' label='Currency:'>
-					<Select defaultValue='USD' style={{width: 80}} onChange={handleCurrency}>
+					<Select defaultValue='USD' style={{width: 80}} onChange={handleChange}>
 						<Option value='USD'>USD</Option>
 						<Option value='EURO'>EURO</Option>
 						<Option value='RUB'>RUB</Option>
 					</Select>
+				</Form.Item>
+				<Form.Item name='language' label='Language:'>
+					<Select defaultValue='en' style={{width: 80}} onChange={handleChange}>
+						<Option value='en'>En</Option>
+						<Option value='ru'>Ru</Option>
+						<Option value='ch'>Ch</Option>
+					</Select>
+				</Form.Item>
+				<Form.Item name='theme' label='Theme:'>
+					<Select defaultValue='light' style={{width: 80}} onChange={handleChange}>
+						<Option value='light'>Light</Option>
+						<Option value='dark'>Dark</Option>
+					</Select>
+				</Form.Item>
+				<Form.Item name='dealsColors' label='Colors of deals:'>
+					<Form {...layout}>
+						<Form.Item name='purchased' label='Purchased:'></Form.Item>
+					</Form>
 				</Form.Item>
 			</Form>
 		</>
