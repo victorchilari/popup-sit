@@ -14,7 +14,7 @@ function onChange(e) {
 	console.log(`checked = ${e.target.checked}`);
 }
 
-export function Auth() {
+export default function Auth() {
 	const [wantToLogin, setWantToLogin] = useState(true);
 
 	function handlerInput(e) {
