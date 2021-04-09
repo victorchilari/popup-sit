@@ -1,4 +1,3 @@
-import React from 'react';
 // Styles //
 import 'antd/dist/antd.css';
 import './often.css';
