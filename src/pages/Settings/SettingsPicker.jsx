@@ -60,11 +60,11 @@ const SettingsPicker = () => {
 				</Form.Item>
 				{/* <Typography.Text style={mard}> Ant Design</Typography.Text> */}
 				{/* <Form.Item name='dealsColors' label='Colors of deals:'></Form.Item> */}
+			</Form>
+			<Form {...layout}>
 				<Divider orientation='left' plain>
 					Colors of deals
 				</Divider>
-			</Form>
-			<Form {...layout}>
 				<Form.Item name='purchased' label='Purchased:'>
 					<ColorPicker color={defColors.purchase} />
 				</Form.Item>
