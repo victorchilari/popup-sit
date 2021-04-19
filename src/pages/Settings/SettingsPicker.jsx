@@ -4,7 +4,7 @@ import './SettingsPicker.css';
 // Components //
 import reactCSS from 'reactcss';
 import {SketchPicker} from 'react-color';
-import {Form, Radio, Select, Divider} from 'antd';
+import {Form, Select, Divider} from 'antd';
 const {Option} = Select;
 
 const layout = {
@@ -63,20 +63,20 @@ const SettingsPicker = () => {
 				<Divider orientation='left' plain>
 					Colors of deals
 				</Divider>
-				<Form {...layout}>
-					<Form.Item name='purchased' label='Purchased:'>
-						<ColorPicker color={defColors.purchase} />
-					</Form.Item>
-					<Form.Item name='listed' label='Listed:'>
-						<ColorPicker color={defColors.listed} />
-					</Form.Item>
-					<Form.Item name='sold' label='Sold:'>
-						<ColorPicker color={defColors.sold} />
-					</Form.Item>
-					<Form.Item name='unlisted' label='Unlisted:'>
-						<ColorPicker color={defColors.unlisted} />
-					</Form.Item>
-				</Form>
+			</Form>
+			<Form {...layout}>
+				<Form.Item name='purchased' label='Purchased:'>
+					<ColorPicker color={defColors.purchase} />
+				</Form.Item>
+				<Form.Item name='listed' label='Listed:'>
+					<ColorPicker color={defColors.listed} />
+				</Form.Item>
+				<Form.Item name='sold' label='Sold:'>
+					<ColorPicker color={defColors.sold} />
+				</Form.Item>
+				<Form.Item name='unlisted' label='Unlisted:'>
+					<ColorPicker color={defColors.unlisted} />
+				</Form.Item>
 			</Form>
 		</>
 	);
