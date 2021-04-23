@@ -99,33 +99,6 @@ const SettingsPicker = ({settings, setDealCollor}) => {
 	);
 };
 
-const defColors = {
-	bought: {
-		r: '255',
-		g: '202',
-		b: '0',
-		a: '1'
-	},
-	listed: {
-		r: '57',
-		g: '73',
-		b: '221',
-		a: '1'
-	},
-	sold: {
-		r: '56',
-		g: '187',
-		b: '49',
-		a: '1'
-	},
-	unlisted: {
-		r: '3',
-		g: '9',
-		b: '88',
-		a: '1'
-	}
-};
-
 const mapStateToProps = state => ({
 	settings: state.settings
 });
