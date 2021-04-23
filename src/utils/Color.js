@@ -8,7 +8,7 @@ export default class Color {
 				this._hex = value;
 				break;
 			default:
-				throw 'Invalid type';
+				throw new Error('Invalid type');
 		}
 	}
 
@@ -28,20 +28,21 @@ Color.RGBAToHex = function ({r, g, b, a = 1}) {
 	if (a < 1) {
 		const scaledA = ((a * 1000) / 3.9).toFixed(0); //! dont touch
 		a = Number(scaledA).toString(16);
-	} else if (a == 1) {
+	} else if (a === 1) {
 		a = 'ff';
 	}
 
-	if (r.length == 1) r = '0' + r;
-	if (g.length == 1) g = '0' + g;
-	if (b.length == 1) b = '0' + b;
-	if (a.length == 1) a = '0' + a;
+	if (r.length === 1) r = '0' + r;
+	if (g.length === 1) g = '0' + g;
+	if (b.length === 1) b = '0' + b;
+	if (a.length === 1) a = '0' + a;
 
 	return '#' + r + g + b + a;
 };
 
-Color.hexToRGBA = function ({_hex}) {
-	h = _hex;
+Color.hexToRGBA = function (props) {
+	const _hex = props._hex || props;
+	const h = _hex;
 	let r = 0,
 		g = 0,
 		b = 0,
