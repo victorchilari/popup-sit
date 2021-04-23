@@ -19,7 +19,7 @@ const layout = {
 };
 
 const SettingsPicker = ({settings}) => {
-	const {dealColors} = settings;
+	const {dealColors, others} = settings;
 	// const [value, setValue] = useState('circle');
 
 	const onChange = e => {
@@ -36,27 +36,39 @@ const SettingsPicker = ({settings}) => {
 		<>
 			<Form {...layout}>
 				<Form.Item name='card-type' label='Show in preview:'>
-					<Select defaultValue='circle' style={{width: 140}} onChange={handleChange}>
+					<Select
+						defaultValue={others.skinInfoView}
+						style={{width: 140}}
+						onChange={handleChange}
+					>
 						<Option value='circle'>Profit after buy</Option>
 						<Option value='chart'>Price chart</Option>
 					</Select>
 				</Form.Item>
 				<Form.Item name='currency' label='Currency:'>
-					<Select defaultValue='USD' style={{width: 80}} onChange={handleChange}>
-						<Option value='USD'>USD</Option>
-						<Option value='EURO'>EURO</Option>
-						<Option value='RUB'>RUB</Option>
+					<Select
+						defaultValue={others.currency}
+						style={{width: 80}}
+						onChange={handleChange}
+					>
+						<Option value='usd'>USD</Option>
+						<Option value='usd'>EURO</Option>
+						<Option value='rub'>RUB</Option>
 					</Select>
 				</Form.Item>
 				<Form.Item name='language' label='Language:'>
-					<Select defaultValue='en' style={{width: 80}} onChange={handleChange}>
+					<Select
+						defaultValue={others.language}
+						style={{width: 80}}
+						onChange={handleChange}
+					>
 						<Option value='en'>En</Option>
 						<Option value='ru'>Ru</Option>
 						<Option value='ch'>Ch</Option>
 					</Select>
 				</Form.Item>
 				<Form.Item name='theme' label='Theme:'>
-					<Select defaultValue='light' style={{width: 80}} onChange={handleChange}>
+					<Select defaultValue={others.theme} style={{width: 80}} onChange={handleChange}>
 						<Option value='light'>Light</Option>
 						<Option value='dark'>Dark</Option>
 					</Select>

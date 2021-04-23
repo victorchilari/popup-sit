@@ -1,6 +1,12 @@
 import {typesOfSettings} from './actions';
 
 const initialState = {
+	others: {
+		skinInfoView: 'circle',
+		currency: 'usd',
+		language: 'en',
+		theme: 'light'
+	},
 	dealColors: {
 		bought: '#ffcc00ff',
 		sold: '#38bb31ff',
