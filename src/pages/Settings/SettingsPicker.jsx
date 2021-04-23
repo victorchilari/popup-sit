@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import {connect} from 'react-redux';
 // Styles //
 import './SettingsPicker.css';
 // Components //
 import reactCSS from 'reactcss';
 import {SketchPicker} from 'react-color';
 import {Form, Select, Divider} from 'antd';
+import Color from '../../utils/Color';
 const {Option} = Select;
 
 const layout = {
@@ -16,7 +18,8 @@ const layout = {
 	}
 };
 
-const SettingsPicker = () => {
+const SettingsPicker = ({settings}) => {
+	const {dealColors} = settings;
 	// const [value, setValue] = useState('circle');
 
 	const onChange = e => {
@@ -65,17 +68,17 @@ const SettingsPicker = () => {
 				<Divider orientation='left' plain>
 					Colors of deals
 				</Divider>
-				<Form.Item name='purchased' label='Purchased:'>
-					<ColorPicker color={defColors.purchase} />
+				<Form.Item name='bought' label='Bought:'>
+					<ColorPicker color={dealColors.bought} />
 				</Form.Item>
 				<Form.Item name='listed' label='Listed:'>
-					<ColorPicker color={defColors.listed} />
+					<ColorPicker color={dealColors.listed} />
 				</Form.Item>
 				<Form.Item name='sold' label='Sold:'>
-					<ColorPicker color={defColors.sold} />
+					<ColorPicker color={dealColors.sold} />
 				</Form.Item>
 				<Form.Item name='unlisted' label='Unlisted:'>
-					<ColorPicker color={defColors.unlisted} />
+					<ColorPicker color={dealColors.unlisted} />
 				</Form.Item>
 			</Form>
 		</>
@@ -83,7 +86,7 @@ const SettingsPicker = () => {
 };
 
 const defColors = {
-	purchase: {
+	bought: {
 		r: '255',
 		g: '202',
 		b: '0',
@@ -109,9 +112,15 @@ const defColors = {
 	}
 };
 
+const mapStateToProps = state => ({
+	settings: state.settings
+});
+export default connect(mapStateToProps)(SettingsPicker);
+
 function ColorPicker(props) {
+	const propsColorRGBA = Color.hexToRGBA(props.color);
 	const [color, setColor] = useState(
-		props.color || {
+		propsColorRGBA || {
 			r: '255',
 			g: '255',
 			b: '255',
@@ -176,8 +185,6 @@ function ColorPicker(props) {
 		</div>
 	);
 }
-
-export default SettingsPicker;
 
 {
 	/* <Form.Item name='radio-group' label='Show in preview:'>
