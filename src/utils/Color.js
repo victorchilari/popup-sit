@@ -1,4 +1,4 @@
-class Color {
+export default class Color {
 	constructor(value, type) {
 		switch (type) {
 			case 'rgb':
@@ -10,22 +10,6 @@ class Color {
 			default:
 				throw 'Invalid type';
 		}
-		// switch (type) {
-		// 	case 'rgb':
-		// 		this.r = value.r;
-		// 		this.g = value.g;
-		// 		this.b = value.b;
-		// 		this.a = value.a || 1;
-		// 		break;
-		// 	case 'hex':
-		// 		this.r = Color.hexToRGBA(value).r;
-		// 		this.g = Color.hexToRGBA(value).g;
-		// 		this.b = Color.hexToRGBA(value).b;
-		// 		this.a = Color.hexToRGBA(value).a;
-		// 		break;
-		// 	default:
-		// 		throw 'Invalid type';
-		// }
 	}
 
 	get rgba() {
@@ -36,7 +20,7 @@ class Color {
 	}
 }
 
-Color.__proto__.RGBAToHex = function ({r, g, b, a = 1}) {
+Color.RGBAToHex = function ({r, g, b, a = 1}) {
 	r = Number(r).toString(16);
 	g = Number(g).toString(16);
 	b = Number(b).toString(16);
@@ -56,7 +40,7 @@ Color.__proto__.RGBAToHex = function ({r, g, b, a = 1}) {
 	return '#' + r + g + b + a;
 };
 
-Color.__proto__.hexToRGBA = function ({_hex}) {
+Color.hexToRGBA = function ({_hex}) {
 	h = _hex;
 	let r = 0,
 		g = 0,
