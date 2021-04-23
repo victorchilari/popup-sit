@@ -7,8 +7,10 @@ import reactCSS from 'reactcss';
 import {SketchPicker} from 'react-color';
 import {Form, Select, Divider} from 'antd';
 import Color from '../../utils/Color';
-const {Option} = Select;
 
+import {setDealCollor} from './../../redux/settings/actions';
+
+const {Option} = Select;
 const layout = {
 	labelCol: {
 		span: 11
@@ -18,7 +20,7 @@ const layout = {
 	}
 };
 
-const SettingsPicker = ({settings}) => {
+const SettingsPicker = ({settings, setDealCollor}) => {
 	const {dealColors, others} = settings;
 	// const [value, setValue] = useState('circle');
 
@@ -81,16 +83,16 @@ const SettingsPicker = ({settings}) => {
 					Colors of deals
 				</Divider>
 				<Form.Item name='bought' label='Bought:'>
-					<ColorPicker color={dealColors.bought} />
+					<ColorPicker color={dealColors.bought} setDealCollor={setDealCollor} />
 				</Form.Item>
 				<Form.Item name='listed' label='Listed:'>
-					<ColorPicker color={dealColors.listed} />
+					<ColorPicker color={dealColors.listed} setDealCollor={setDealCollor} />
 				</Form.Item>
 				<Form.Item name='sold' label='Sold:'>
-					<ColorPicker color={dealColors.sold} />
+					<ColorPicker color={dealColors.sold} setDealCollor={setDealCollor} />
 				</Form.Item>
 				<Form.Item name='unlisted' label='Unlisted:'>
-					<ColorPicker color={dealColors.unlisted} />
+					<ColorPicker color={dealColors.unlisted} setDealCollor={setDealCollor} />
 				</Form.Item>
 			</Form>
 		</>
@@ -127,18 +129,19 @@ const defColors = {
 const mapStateToProps = state => ({
 	settings: state.settings
 });
-export default connect(mapStateToProps)(SettingsPicker);
+const mapDispatchToProps = dispatch => ({
+	setDealCollor: color => dispatch(setDealCollor(color))
+});
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsPicker);
 
 function ColorPicker(props) {
 	const propsColorRGBA = Color.hexToRGBA(props.color);
-	const [color, setColor] = useState(
-		propsColorRGBA || {
-			r: '255',
-			g: '255',
-			b: '255',
-			a: '0.3'
-		}
-	);
+	const color = propsColorRGBA || {
+		r: '255',
+		g: '255',
+		b: '255',
+		a: '0.6'
+	};
 	const [displayPicker, setDisplayPicker] = useState(false);
 
 	const handleClick = () => {
@@ -148,8 +151,9 @@ function ColorPicker(props) {
 		setDisplayPicker(false);
 	};
 	const handleChange = color => {
-		console.log(color.rgb);
-		setColor(color.rgb);
+		const colorithAlfaCanal =
+			color.hex.length === 7 ? color.hex + 'ff' : Color.RGBAToHex(color.rgb);
+		props.setDealCollor({color: colorithAlfaCanal, dealType: props.id});
 	};
 
 	const styles = reactCSS({
@@ -184,7 +188,7 @@ function ColorPicker(props) {
 		}
 	});
 	return (
-		<div>
+		<>
 			<div style={styles.swatch} onClick={handleClick}>
 				<div style={styles.color} />
 			</div>
@@ -194,7 +198,7 @@ function ColorPicker(props) {
 					<SketchPicker color={color} onChange={handleChange} />
 				</div>
 			) : null}
-		</div>
+		</>
 	);
 }
 
