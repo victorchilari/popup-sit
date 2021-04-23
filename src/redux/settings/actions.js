@@ -1,10 +1,9 @@
-// export const types = {
-// 	SET_DEAL_COLOR: 'SET_DEAL_COLOR'
-// };
-// type: types.SET_DEAL_COLOR,
+export const typesOfSettings = {
+	SET_A_VALUE_OF_SETTINGS: 'SET_A_VALUE_OF_SETTINGS'
+};
 
-export const setSettings = ({key, color}) => ({
-	type: 'SET_SETTINGS',
+export const setSettings = ({key, value}) => ({
+	type: typesOfSettings.SET_A_VALUE_OF_SETTINGS,
 	key,
-	color
+	value
 });

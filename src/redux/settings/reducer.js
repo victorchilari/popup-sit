@@ -1,5 +1,4 @@
-// import {types} from './actions';
-// case types.SET_DEAL_COLOR:
+import {typesOfSettings} from './actions';
 
 const initialState = {
 	boughtColor: '#325106',
@@ -10,10 +9,9 @@ const initialState = {
 
 export default function settingsReducer(state = initialState, action) {
 	switch (action.type) {
-		case 'SET_SETTINGS':
-			return {...state, [action.key]: action.color};
+		case typesOfSettings.SET_A_VALUE_OF_SETTINGS:
+			return {...state, [action.key]: action.value};
 		default:
-			state;
-			break;
+			return state;
 	}
 }
