@@ -36,6 +36,7 @@ const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 						defaultValue={others[data.name]}
 						handler={setUniqueSettings}
 						key={key}
+						{...data}
 					/>
 				))}
 			</Form>
