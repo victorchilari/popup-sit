@@ -9,7 +9,7 @@ export const setDealCollor = ({dealType, color}) => ({
 	color
 });
 
-export const setSettings = ({key, value}) => ({
+export const setUniqueSettings = ({key, value}) => ({
 	type: typesOfSettings.SET_A_VALUE_OF_SETTINGS,
 	key,
 	value

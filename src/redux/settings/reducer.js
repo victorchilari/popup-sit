@@ -22,7 +22,9 @@ export default function settingsReducer(state = initialState, action) {
 			dealcolors[action.dealType] = action.color;
 			return {...state, dealColors: dealcolors};
 		case typesOfSettings.SET_A_VALUE_OF_SETTINGS:
-			return {...state, [action.key]: action.value};
+			const others = {...state.others};
+			others[action.key] = action.value;
+			return {...state, others: others};
 		default:
 			return state;
 	}

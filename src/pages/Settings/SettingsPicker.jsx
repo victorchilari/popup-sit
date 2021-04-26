@@ -8,7 +8,7 @@ import {SketchPicker} from 'react-color';
 import {Form, Select, Divider} from 'antd';
 import Color from '../../utils/Color';
 
-import {setDealCollor} from './../../redux/settings/actions';
+import {setDealCollor, setUniqueSettings} from './../../redux/settings/actions';
 
 const {Option} = Select;
 const layout = {
@@ -20,20 +20,22 @@ const layout = {
 	}
 };
 
-const SettingsPicker = ({settings, setDealCollor}) => {
+const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 	const {dealColors, others} = settings;
 	// const [value, setValue] = useState('circle');
 
-	const onChange = e => {
-		// console.log('prev:', value);
-		// console.log('radio checked', e.target.value);
-		// setValue(e.target.value);
-	};
+	// const onChange = e => {
+	// 	// console.log('prev:', value);
+	// 	// console.log('radio checked', e.target.value);
+	// 	// setValue(e.target.value);
+	// };
 
-	function handleChange(value) {
-		console.log(`selected ${value}`);
-		// setValue(value);
-	}
+	// function handleChange(data) {
+	// 	console.log(`selected ${data}`);
+	// 	// debugger;
+	// 	setUniqueSettings(data);
+	// 	// setValue(value);
+	// }
 	return (
 		<>
 			<Form {...layout}>
@@ -41,7 +43,7 @@ const SettingsPicker = ({settings, setDealCollor}) => {
 					<Select
 						defaultValue={others.skinInfoView}
 						style={{width: 140}}
-						onChange={handleChange}
+						onChange={value => setUniqueSettings({key: 'skinInfoView', value})}
 					>
 						<Option value='circle'>Profit after buy</Option>
 						<Option value='chart'>Price chart</Option>
@@ -51,10 +53,10 @@ const SettingsPicker = ({settings, setDealCollor}) => {
 					<Select
 						defaultValue={others.currency}
 						style={{width: 80}}
-						onChange={handleChange}
+						onChange={value => setUniqueSettings({key: 'currency', value})}
 					>
 						<Option value='usd'>USD</Option>
-						<Option value='usd'>EURO</Option>
+						<Option value='euro'>EURO</Option>
 						<Option value='rub'>RUB</Option>
 					</Select>
 				</Form.Item>
@@ -62,7 +64,7 @@ const SettingsPicker = ({settings, setDealCollor}) => {
 					<Select
 						defaultValue={others.language}
 						style={{width: 80}}
-						onChange={handleChange}
+						onChange={value => setUniqueSettings({key: 'language', value})}
 					>
 						<Option value='en'>En</Option>
 						<Option value='ru'>Ru</Option>
@@ -70,7 +72,11 @@ const SettingsPicker = ({settings, setDealCollor}) => {
 					</Select>
 				</Form.Item>
 				<Form.Item name='theme' label='Theme:'>
-					<Select defaultValue={others.theme} style={{width: 80}} onChange={handleChange}>
+					<Select
+						defaultValue={others.theme}
+						style={{width: 80}}
+						onChange={value => setUniqueSettings({key: 'theme', value})}
+					>
 						<Option value='light'>Light</Option>
 						<Option value='dark'>Dark</Option>
 					</Select>
@@ -103,7 +109,8 @@ const mapStateToProps = state => ({
 	settings: state.settings
 });
 const mapDispatchToProps = dispatch => ({
-	setDealCollor: color => dispatch(setDealCollor(color))
+	setDealCollor: data => dispatch(setDealCollor(data)),
+	setUniqueSettings: data => dispatch(setUniqueSettings(data))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsPicker);
 
