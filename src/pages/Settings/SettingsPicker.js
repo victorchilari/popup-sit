@@ -22,8 +22,9 @@ const layout = {
 const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 	const {dealColors, others} = settings;
 	// function handleChange(data) {
-	// 	console.log(`selected ${data}`);
-	// 	// debugger;
+	// console.log(`selected ${data}`);
+	console.log(cfg_settings);
+	// debugger;
 	// 	setUniqueSettings(data);
 	// 	// setValue(value);
 	// }
@@ -42,6 +43,14 @@ const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 				<Divider orientation='left' plain>
 					Colors of deals
 				</Divider>
+				{Object.entries(cfg_settings.default.deals).map(([key, data]) => (
+					<ColorPicker
+						color={dealColors[data.name]}
+						setDealCollor={setDealCollor}
+						key={key}
+						{...data}
+					/>
+				))}
 				<Form.Item name='bought' label='Bought:'>
 					<ColorPicker color={dealColors.bought} setDealCollor={setDealCollor} />
 				</Form.Item>

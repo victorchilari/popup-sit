@@ -1,7 +1,10 @@
 import React, {useState} from 'react';
-import reactCSS from 'reactcss';
-import {SketchPicker} from 'react-color';
+
 import Color from '../utils/Color';
+import reactCSS from 'reactcss';
+
+import {SketchPicker} from 'react-color';
+import {Form} from 'antd';
 
 /*
 interface IColorPicker {
@@ -69,7 +72,7 @@ export default function ColorPicker(props) {
 		}
 	});
 	return (
-		<>
+		<Form.Item name={props.name} label={props.label}>
 			<div style={styles.swatch} onClick={handleClick}>
 				<div style={styles.color} />
 			</div>
@@ -79,6 +82,6 @@ export default function ColorPicker(props) {
 					<SketchPicker color={color} onChange={handleChange} />
 				</div>
 			) : null}
-		</>
+		</Form.Item>
 	);
 }
