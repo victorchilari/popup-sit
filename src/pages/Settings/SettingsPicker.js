@@ -4,11 +4,11 @@ import {connect} from 'react-redux';
 import './SettingsPicker.css';
 // Components //
 import {Form, Divider} from 'antd';
-import DSelect from './../../components/def/DSelect';
-import ColorPicker from './../../components/ColorPicker';
+import DSelect from '../../components/def/DSelect';
+import ColorPicker from '../../components/ColorPicker';
 
-import {setDealCollor, setUniqueSettings} from './../../redux/settings/actions';
-import * as cfg_settings from './../../content/Settings.json';
+import {setDealCollor, setUniqueSettings} from '../../redux/settings/actions';
+import * as cfg_settings from '../../content/Settings.json';
 
 const layout = {
 	labelCol: {
