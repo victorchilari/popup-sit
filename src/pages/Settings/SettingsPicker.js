@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import './SettingsPicker.css';
 // Components //
 import {Form, Divider} from 'antd';
-import DSelect from '../../components/def/DSelect';
+import Select from '../../components/Select';
 import ColorPicker from '../../components/ColorPicker';
 
 import {setDealCollor, setUniqueSettings} from '../../redux/settings/actions';
@@ -31,7 +31,7 @@ const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 		<>
 			<Form {...layout}>
 				{Object.entries(cfg_settings.default.others).map(([key, data]) => (
-					<DSelect
+					<Select
 						defaultValue={others[data.name]}
 						handler={setUniqueSettings}
 						key={key}
