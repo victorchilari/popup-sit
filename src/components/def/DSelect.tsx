@@ -14,16 +14,18 @@ interface ISelect {
 	defaultValue?: string;
 	handler: Function;
 	options: Array<IOption>;
-	width?: 'default' | 'medium' | number;
+	width?: 'small' | 'medium' | number;
 }
 export default function DSelect(props: ISelect) {
 	const posible_witdth = {
-		default: 80,
+		small: 80,
 		medium: 140
 	};
+	const _default = 'small';
+
 	const width = {'width': 80};
 	if (typeof props.width === 'string') {
-		width.width = posible_witdth[props.width] || posible_witdth.default;
+		width.width = posible_witdth[props.width] || posible_witdth[_default];
 	} else if (typeof props.width === 'number') {
 		width.width = props.width;
 	}
