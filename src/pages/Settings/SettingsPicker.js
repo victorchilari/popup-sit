@@ -52,18 +52,6 @@ const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 						{...data}
 					/>
 				))}
-				<Form.Item name='bought' label='Bought:'>
-					<ColorPicker color={dealColors.bought} setDealCollor={setDealCollor} />
-				</Form.Item>
-				<Form.Item name='listed' label='Listed:'>
-					<ColorPicker color={dealColors.listed} setDealCollor={setDealCollor} />
-				</Form.Item>
-				<Form.Item name='sold' label='Sold:'>
-					<ColorPicker color={dealColors.sold} setDealCollor={setDealCollor} />
-				</Form.Item>
-				<Form.Item name='unlisted' label='Unlisted:'>
-					<ColorPicker color={dealColors.unlisted} setDealCollor={setDealCollor} />
-				</Form.Item>
 			</Form>
 		</>
 	);
