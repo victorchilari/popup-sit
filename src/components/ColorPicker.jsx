@@ -8,8 +8,9 @@ import {Form} from 'antd';
 
 /*
 interface IColorPicker {
+	name: string;
+	label: string;
 	color: string;
-	id: string;
 	setDealCollor: Function;
 }
 
@@ -35,9 +36,9 @@ export default function ColorPicker(props) {
 		setDisplayPicker(false);
 	};
 	const handleChange = color => {
-		const colorithAlfaCanal =
-			color.hex.length === 7 ? color.hex + 'ff' : Color.RGBAToHex(color.rgb);
-		props.setDealCollor({color: colorithAlfaCanal, dealType: props.id});
+		const colorWithAlfaCanal =
+			color.rgb.a === 1 ? color.hex + 'ff' : Color.RGBAToHex(color.rgb);
+		props.setDealCollor({color: colorWithAlfaCanal, dealType: props.name});
 	};
 
 	const styles = reactCSS({
