@@ -5,13 +5,13 @@ import './SettingsPicker.css';
 // Components //
 import reactCSS from 'reactcss';
 import {SketchPicker} from 'react-color';
-import {Form, Select, Divider} from 'antd';
+import {Form, Divider} from 'antd';
 import Color from '../../utils/Color';
 import DSelect from './../../components/def/DSelect';
 
 import {setDealCollor, setUniqueSettings} from './../../redux/settings/actions';
+import * as cfg_settings from './../../content/Settings.json';
 
-const {Option} = Select;
 const layout = {
 	labelCol: {
 		span: 11
@@ -40,59 +40,38 @@ const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 	return (
 		<>
 			<Form {...layout}>
-				<Form.Item name='card-type' label='Show in preview:'>
-					<Select
-						defaultValue={others.skinInfoView}
-						style={{width: 140}}
-						onChange={value => setUniqueSettings({key: 'skinInfoView', value})}
-					>
-						<Option value='circle'>Profit after buy</Option>
-						<Option value='chart'>Price chart</Option>
-					</Select>
-				</Form.Item>
-				<Form.Item name='currency' label='Currency:'>
-					<Select
-						defaultValue={others.currency}
-						style={{width: 80}}
-						onChange={value => setUniqueSettings({key: 'currency', value})}
-					>
-						<Option value='usd'>USD</Option>
-						<Option value='euro'>EURO</Option>
-						<Option value='rub'>RUB</Option>
-					</Select>
-				</Form.Item>
+				{Object.entries(cfg_settings.default).map(([key, data]) => {
+					const {type, ...rest} = data;
+					if (type === 'select')
+						return (
+							<DSelect
+								defaultValue={others[data.name]}
+								handler={setUniqueSettings}
+								key={key}
+								{...rest}
+							/>
+						);
+				})}
+				{/* <DSelect
+					defaultValue={others.skinInfoView}
+					handler={setUniqueSettings}
+					{...cfg_settings.default.skinInfoView}
+				/>
 				<DSelect
-					name='currency'
-					label='Currency:'
 					defaultValue={others.currency}
 					handler={setUniqueSettings}
-					options={[
-						{value: 'usd', title: 'USD'},
-						{value: 'euro', title: 'EURO'},
-						{value: 'rub', title: 'RUB'}
-					]}
+					{...cfg_settings.default.currency}
 				/>
-				<Form.Item name='language' label='Language:'>
-					<Select
-						defaultValue={others.language}
-						style={{width: 80}}
-						onChange={value => setUniqueSettings({key: 'language', value})}
-					>
-						<Option value='en'>En</Option>
-						<Option value='ru'>Ru</Option>
-						<Option value='ch'>Ch</Option>
-					</Select>
-				</Form.Item>
-				<Form.Item name='theme' label='Theme:'>
-					<Select
-						defaultValue={others.theme}
-						style={{width: 80}}
-						onChange={value => setUniqueSettings({key: 'theme', value})}
-					>
-						<Option value='light'>Light</Option>
-						<Option value='dark'>Dark</Option>
-					</Select>
-				</Form.Item>
+				<DSelect
+					defaultValue={others.language}
+					handler={setUniqueSettings}
+					{...cfg_settings.default.language}
+				/>
+				<DSelect
+					defaultValue={others.theme}
+					handler={setUniqueSettings}
+					{...cfg_settings.default.theme}
+				/> */}
 				{/* <Typography.Text style={mard}> Ant Design</Typography.Text> */}
 				{/* <Form.Item name='dealsColors' label='Colors of deals:'></Form.Item> */}
 			</Form>
