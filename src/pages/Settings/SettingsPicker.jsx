@@ -7,6 +7,7 @@ import reactCSS from 'reactcss';
 import {SketchPicker} from 'react-color';
 import {Form, Select, Divider} from 'antd';
 import Color from '../../utils/Color';
+import DSelect from './../../components/def/DSelect';
 
 import {setDealCollor, setUniqueSettings} from './../../redux/settings/actions';
 
@@ -60,6 +61,17 @@ const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 						<Option value='rub'>RUB</Option>
 					</Select>
 				</Form.Item>
+				<DSelect
+					name='currency'
+					label='Currency:'
+					defaultValue={others.currency}
+					handler={setUniqueSettings}
+					options={[
+						{value: 'usd', title: 'USD'},
+						{value: 'euro', title: 'EURO'},
+						{value: 'rub', title: 'RUB'}
+					]}
+				/>
 				<Form.Item name='language' label='Language:'>
 					<Select
 						defaultValue={others.language}
