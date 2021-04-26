@@ -1,41 +1,61 @@
 {
-	"skinInfoView": {
-		"name": "skinInfoView",
-		"label": "Show in preview:",
-		"options": [
-			{"value": "circle", "title": "Profit after buy"},
-			{"value": "chart", "title": "Price chart"}
-		],
-		"type": "select",
-		"width": "medium"
+	"others": {
+		"skinInfoView": {
+			"name": "skinInfoView",
+			"label": "Show in preview:",
+			"options": [
+				{"value": "circle", "title": "Profit after buy"},
+				{"value": "chart", "title": "Price chart"}
+			],
+			"type": "select",
+			"width": "medium"
+		},
+		"currency": {
+			"name": "currency",
+			"label": "Currency:",
+			"options": [
+				{"value": "usd", "title": "USD"},
+				{"value": "euro", "title": "EURO"},
+				{"value": "rub", "title": "RUB"}
+			],
+			"type": "select"
+		},
+		"language": {
+			"name": "language",
+			"label": "Language:",
+			"options": [
+				{"value": "en", "title": "En"},
+				{"value": "ru", "title": "Ru"},
+				{"value": "ch", "title": "Ch"}
+			],
+			"type": "select"
+		},
+		"theme": {
+			"name": "theme",
+			"label": "Theme:",
+			"options": [
+				{"value": "light", "title": "Light"},
+				{"value": "dark", "title": "Dark"}
+			],
+			"type": "select"
+		}
 	},
-	"currency": {
-		"name": "currency",
-		"label": "Currency:",
-		"options": [
-			{"value": "usd", "title": "USD"},
-			{"value": "euro", "title": "EURO"},
-			{"value": "rub", "title": "RUB"}
-		],
-		"type": "select"
-	},
-	"language": {
-		"name": "language",
-		"label": "Language:",
-		"options": [
-			{"value": "en", "title": "En"},
-			{"value": "ru", "title": "Ru"},
-			{"value": "ch", "title": "Ch"}
-		],
-		"type": "select"
-	},
-	"theme": {
-		"name": "theme",
-		"label": "Theme:",
-		"options": [
-			{"value": "light", "title": "Light"},
-			{"value": "dark", "title": "Dark"}
-		],
-		"type": "select"
+	"deals": {
+		"bought": {
+			"name": "bought",
+			"label": "Bought:"
+		},
+		"listed": {
+			"name": "listed",
+			"label": "Listed:"
+		},
+		"sold": {
+			"name": "sold",
+			"label": "Sold:"
+		},
+		"unlisted": {
+			"name": "unlisted",
+			"label": "Unlisted:"
+		}
 	}
 }
