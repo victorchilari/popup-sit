@@ -40,38 +40,13 @@ const SettingsPicker = ({settings, setDealCollor, setUniqueSettings}) => {
 	return (
 		<>
 			<Form {...layout}>
-				{Object.entries(cfg_settings.default).map(([key, data]) => {
-					const {type, ...rest} = data;
-					if (type === 'select')
-						return (
-							<DSelect
-								defaultValue={others[data.name]}
-								handler={setUniqueSettings}
-								key={key}
-								{...rest}
-							/>
-						);
-				})}
-				{/* <DSelect
-					defaultValue={others.skinInfoView}
-					handler={setUniqueSettings}
-					{...cfg_settings.default.skinInfoView}
-				/>
-				<DSelect
-					defaultValue={others.currency}
-					handler={setUniqueSettings}
-					{...cfg_settings.default.currency}
-				/>
-				<DSelect
-					defaultValue={others.language}
-					handler={setUniqueSettings}
-					{...cfg_settings.default.language}
-				/>
-				<DSelect
-					defaultValue={others.theme}
-					handler={setUniqueSettings}
-					{...cfg_settings.default.theme}
-				/> */}
+				{Object.entries(cfg_settings.default.others).map(([key, data]) => (
+					<DSelect
+						defaultValue={others[data.name]}
+						handler={setUniqueSettings}
+						key={key}
+					/>
+				))}
 				{/* <Typography.Text style={mard}> Ant Design</Typography.Text> */}
 				{/* <Form.Item name='dealsColors' label='Colors of deals:'></Form.Item> */}
 			</Form>
