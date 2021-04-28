@@ -26,13 +26,7 @@ interface IColorPicker {
 }
 
 export default function ColorPicker(props: IColorPicker) {
-	const propsColorRGBA = Color.hexToRGBA(props.color);
-	const color = propsColorRGBA || {
-		r: '255',
-		g: '255',
-		b: '255',
-		a: '0.6'
-	};
+	const color = Color.hexToRGBA(props.color);
 	const [displayPicker, setDisplayPicker] = useState(false);
 
 	const handleClick = () => {
