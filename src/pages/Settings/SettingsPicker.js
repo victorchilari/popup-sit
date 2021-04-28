@@ -8,7 +8,7 @@ import Select from '../../components/Select';
 import ColorPicker from '../../components/ColorPicker';
 
 import {setDealCollor, setUniqueSettings} from '../../redux/settings/actions';
-import * as cfg_settings from '../../content/Settings.json';
+import * as cfg_settings from './../../content/SettingsPicker.json';
 
 const layout = {
 	labelCol: {
