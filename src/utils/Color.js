@@ -1,10 +1,15 @@
 export default class Color {
+	static types = {
+		rgb: 'rgb',
+		hex: 'hex'
+	};
+
 	constructor(value, type) {
 		switch (type) {
-			case 'rgb':
+			case types.rgb:
 				this._hex = Color.RGBAToHex(value);
 				break;
-			case 'hex':
+			case types.hex:
 				this._hex = value;
 				break;
 			default:
