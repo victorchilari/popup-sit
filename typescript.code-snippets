@@ -1,0 +1,47 @@
+{
+	"Create Interface": {
+		"prefix": ".int",
+		"body": "interface I$1\n{\n\t$2\n}",
+		"scope": "typescript, typescriptreact"
+	},
+	"Create Export Interface": {
+		"prefix": ".eint",
+		"body": "export interface I$1\n{\n\t$2\n}",
+		"scope": "typescript, typescriptreact"
+	},
+	"Create Export Default Interface": {
+		"prefix": ".edint",
+		"body": "export default interface I$1\n{\n\t$2\n}",
+		"scope": "typescript, typescriptreact"
+	},
+	"Type String": {
+		"prefix": ".ts",
+		"body": [": string "],
+		"scope": "typescript, typescriptreact"
+	},
+	"Type Number": {
+		"prefix": ".tn",
+		"body": [": number "],
+		"scope": "typescript, typescriptreact"
+	},
+	"Type Boolean": {
+		"prefix": ".tb",
+		"body": [": boolean "],
+		"scope": "typescript, typescriptreact"
+	},
+	"Type Any": {
+		"prefix": ".ta",
+		"body": [": any "],
+		"scope": "typescript, typescriptreact"
+	},
+	"Type Array": {
+		"prefix": ".tar",
+		"body": [": Array<$1> "],
+		"scope": "typescript, typescriptreact"
+	},
+	"Type Function": {
+		"prefix": ".tf",
+		"body": [": Function "],
+		"scope": "typescript, typescriptreact"
+	}
+}
