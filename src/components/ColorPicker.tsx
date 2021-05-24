@@ -10,7 +10,7 @@ interface IPickedColor {
 	hsl: {h: number; l: number; a: number};
 	hsv: {h: number; v: number; a: number};
 	oldHue: number;
-	rgb: {r: number; g: number; b: number; a: number};
+	rgba: {r: number; g: number; b: number; a: number};
 	source: string;
 }
 
@@ -37,7 +37,7 @@ export default function ColorPicker(props: IColorPicker) {
 	};
 	const handleChange: any = (color: IPickedColor) => {
 		const colorWithAlfaCanal =
-			color.rgb.a === 1 ? color.hex + 'ff' : Color.RGBAToHex(color.rgb);
+			color.rgba.a === 1 ? color.hex + 'ff' : Color.RGBAToHex(color.rgba);
 		props.setDealCollor({color: colorWithAlfaCanal, dealType: props.name});
 	};
 

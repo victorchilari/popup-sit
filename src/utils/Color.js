@@ -1,15 +1,15 @@
 export default class Color {
 	static types = {
-		rgb: 'rgb',
+		rgba: 'rgba',
 		hex: 'hex'
 	};
 
 	constructor(value, type) {
 		switch (type) {
-			case types.rgb:
+			case type.rgba:
 				this._hex = Color.RGBAToHex(value);
 				break;
-			case types.hex:
+			case type.hex:
 				this._hex = value;
 				break;
 			default:
@@ -67,7 +67,7 @@ Color.hexToRGBA = function (props) {
 
 // const a = new Color('#1F4578ff', 'hex');
 // console.log(a.rgba);
-// const b = new Color({r: '255', g: '9', b: '88', a: '1'}, 'rgb');
+// const b = new Color({r: '255', g: '9', b: '88', a: '1'}, 'rgba');
 // console.log(b.hex);
-// const d = new Color({r: '3', g: '9', b: '88', a: '0.99'}, 'rgb');
+// const d = new Color({r: '3', g: '9', b: '88', a: '0.99'}, 'rgba');
 // console.log(d.rgba);
